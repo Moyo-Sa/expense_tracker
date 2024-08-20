@@ -2,8 +2,10 @@ import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
 import axios from "axios";
 
+const baseURL = import.meta.env.VITE_BASE_URL;
+
 const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL,
+  baseURL,
 });
 
 // Initial state
@@ -24,7 +26,6 @@ export const GlobalProvider = ({ children }) => {
   async function getTransactions() {
     try {
       const res = await apiClient.get(`/api/v1/transactions`);
-
       dispatch({
         type: "GET_TRANSACTIONS",
         payload: res.data.data,

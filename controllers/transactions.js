@@ -20,6 +20,7 @@ exports.getTransactions = async (req, res, next) => {
     }
 }
 
+
 // @desc: Add a transaction
 // @route: POST /api/v1/transactions
 // @access: Public
